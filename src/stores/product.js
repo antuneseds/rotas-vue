@@ -8,5 +8,17 @@ export const useProductStore = defineStore('product', () => {
     { id: 3, name: 'Pão de Queijo', price: 2, qty: 70 },
     { id: 4, name: 'Bolo de chocolate', price: 5, qty: 60 }
   ])
-  return { products }
+
+  function getProductById(id) {
+  //  for (let product of products.value) {
+  //    if (product.id == id) {
+  //      return product
+  //    }
+  //  }
+  //return {}
+  return products.value.find((product) => product.id == id)
+  }
+
+  return { products, getProductById }
+
 })
